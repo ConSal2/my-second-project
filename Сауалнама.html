@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <title>Абай Құнанбайұлы туралы сауалнама</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: #fff;
+            min-height: 100vh;
+            margin: 0;
+            padding: 2rem;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(15px);
+            border-radius: 30px;
+            padding: 3rem;
+            position: relative;
+            box-shadow: 0 0 50px rgba(100,255,255,0.2);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 2.8rem;
+            text-shadow: 0 0 25px #00f3ff;
+            margin-bottom: 2rem;
+            background: linear-gradient(90deg, #00fff2, #ff00ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .question {
+            margin: 2.5rem 0;
+            padding: 2rem;
+            background: rgba(0,0,0,0.3);
+            border-radius: 20px;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+
+        .question:hover {
+            transform: translateX(10px);
+        }
+
+        .options label {
+            display: block;
+            margin: 1.2rem 0;
+            padding: 1.2rem;
+            background: linear-gradient(90deg, rgba(0,188,212,0.2), transparent);
+            border-radius: 15px;
+            cursor: pointer;
+            transition: all 0.3s;
+            position: relative;
+            font-size: 1.1em;
+            letter-spacing: 1px;
+        }
+
+        .options label::before {
+            content: '▹';
+            position: absolute;
+            left: -20px;
+            opacity: 0;
+            transition: 0.3s;
+        }
+
+        .options label:hover::before {
+            opacity: 1;
+            left: 10px;
+        }
+
+        button {
+            background: linear-gradient(90deg, #00f2ff 0%, #d400ff 100%);
+            border: none;
+            padding: 1.2rem 3rem;
+            color: white;
+            border-radius: 30px;
+            cursor: pointer;
+            display: block;
+            margin: 3rem auto;
+            font-size: 1.3rem;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 30px rgba(0,242,255,0.5);
+        }
+
+        .result {
+            text-align: center;
+            font-size: 2.5rem;
+            padding: 3rem;
+            display: none;
+            background: rgba(0,0,0,0.3);
+            border-radius: 20px;
+            margin-top: 2rem;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 3rem;
+            font-family: 'Courier New', monospace;
+            color: #00fffb;
+            text-shadow: 0 0 15px #00ffff;
+            animation: glow 2s ease-in-out infinite;
+            font-size: 1.3rem;
+        }
+
+        @keyframes glow {
+            0%, 100% { opacity: 0.7; }
+            50% { opacity: 1; }
+        }
+
+        input[type="radio"] {
+            accent-color: #00fffb;
+            transform: scale(1.2);
+            margin-right: 1rem;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .container::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, 
+                transparent 20%, 
+                rgba(0,255,255,0.1) 50%, 
+                transparent 80%);
+            animation: move 20s linear infinite;
+            z-index: -1;
+        }
+
+        @keyframes move {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Абай Құнанбайұлы туралы сауалнама ✨</h1>
+        
+        <form id="quizForm">
+            <div class="question">
+                <h3>1. Абайдың қандай шығармасы прозалық жанрда жазылған?</h3>
+                <div class="options">
+                    <label><input type="radio" name="q1" value="wrong"> А) Өлеңдер</label>
+                    <label><input type="radio" name="q1" value="correct"> Б) Қара сөздер</label>
+                    <label><input type="radio" name="q1" value="wrong"> В) Пьесалар</label>
+                </div>
+            </div>
+
+            <div class="question">
+                <h3>2. Абай қандай орыс ақынының шығармаларын аударған?</h3>
+                <div class="options">
+                    <label><input type="radio" name="q2" value="correct"> А) Пушкин</label>
+                    <label><input type="radio" name="q2" value="wrong"> Б) Достоевский</label>
+                    <label><input type="radio" name="q2" value="wrong"> В) Толстой</label>
+                </div>
+            </div>
+
+            <div class="question">
+                <h3>3. "Қыс" өлеңінде қыстың бейнесін қалай сипаттайды?</h3>
+                <div class="options">
+                    <label><input type="radio" name="q3" value="wrong"> А) Жас бала</label>
+                    <label><input type="radio" name="q3" value="correct"> Б) Ақ киімді шал</label>
+                    <label><input type="radio" name="q3" value="wrong"> В) Әдемі әйел</label>
+                </div>
+            </div>
+
+            <div class="question">
+                <h3>4. Абайдың еңбектеріндегі басты тақырып:</h3>
+                <div class="options">
+                    <label><input type="radio" name="q4" value="wrong"> А) Билік</label>
+                    <label><input type="radio" name="q4" value="correct"> Б) Адамгершілік пен білім</label>
+                    <label><input type="radio" name="q4" value="wrong"> В) Соғыс</label>
+                </div>
+            </div>
+
+            <div class="question">
+                <h3>5. Абайдың әкесінің есімі:</h3>
+                <div class="options">
+                    <label><input type="radio" name="q5" value="wrong"> А) Ибрагим</label>
+                    <label><input type="radio" name="q5" value="correct"> Б) Құнанбай</label>
+                    <label><input type="radio" name="q5" value="wrong"> В) Шәкәрім</label>
+                </div>
+            </div>
+
+            <button type="submit" id="submitBtn" disabled>Нәтижелерді көрсету ⚡</button>
+        </form>
+
+        <div class="result" id="result"></div>
+        <button onclick="location.reload()" style="display: none;" id="retryBtn">Қайта бастау 🔄</button>
+    </div>
+
+    <div class="footer">🤖 Жасаған ЖИ</div>
+
+    <script>
+        const form = document.getElementById('quizForm');
+        const submitBtn = document.getElementById('submitBtn');
+        const resultDiv = document.getElementById('result');
+        const retryBtn = document.getElementById('retryBtn');
+
+        form.querySelectorAll('input[type="radio"]').forEach(input => {
+            input.addEventListener('change', () => {
+                const allAnswered = document.querySelectorAll('.question').length === 
+                    document.querySelectorAll('input:checked').length;
+                submitBtn.disabled = !allAnswered;
+            });
+        });
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            let score = 0;
+            const answers = {
+                q1: 'correct',
+                q2: 'correct',
+                q3: 'correct',
+                q4: 'correct',
+                q5: 'correct'
+            };
+
+            Object.keys(answers).forEach(q => {
+                if (form[q].value === answers[q]) score++;
+            });
+
+            const results = {
+                5: 'Тамаша! 🌟 5/5',
+                4: 'Керемет! 💎 4/5',
+                3: 'Жақсы! ✨ 3/5',
+                2: 'Орташа 🌀 2/5',
+                1: 'Қайта оқып көр 📚 1/5'
+            };
+
+            form.style.display = 'none';
+            resultDiv.style.display = 'block';
+            retryBtn.style.display = 'block';
+            resultDiv.innerHTML = `<div style="font-size: 3rem">${results[score]}</div>`;
+        });
+    </script>
+</body>
+</html>
